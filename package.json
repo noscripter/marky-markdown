@@ -6,7 +6,9 @@
   "scripts": {
     "build": "rm -rf dist && mkdir dist && touch dist/marky-markdown.js && browserify index.js -i highlights -s markyMarkdown > dist/marky-markdown.js",
     "test": "standard --fix && mocha --timeout 8000",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "browser": {
     "highlights": false
@@ -56,7 +58,8 @@
     "markdown-it-task-lists": "^1.0.0",
     "property-ttl": "^1.0.0",
     "sanitize-html": "^1.6.1",
-    "similarity": "^1.0.1"
+    "similarity": "^1.0.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
@@ -69,5 +72,6 @@
   "bin": "./bin/marky-markdown.js",
   "standard": {
     "ignore": "dist"
-  }
+  },
+  "snyk": true
 }
